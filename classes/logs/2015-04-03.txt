@@ -1,0 +1,3 @@
+Time : 12:25:20
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 's Democratic Republic of Algeria','Algiers','DZ')' at line 1
+Raw SQL : INSERT INTO `countries` (`common_name`,`formal_name`,`currency`,`country_code`) VALUES('Algeria','People's Democratic Republic of Algeria','Algiers','DZ')

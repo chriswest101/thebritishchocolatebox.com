@@ -1,0 +1,41 @@
+Time : 10:25:50
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 4
+Raw SQL : SELECT p.* FROM products AS p 
+                                            LEFT JOIN product_categories AS pc ON p.id = pc.product_id 
+                                            LEFT JOIN categories AS c ON pc.category_id = c.id
+                                            WHERE ()
+
+Time : 10:25:32
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'O)' at line 4
+Raw SQL : SELECT p.* FROM products AS p 
+                                            LEFT JOIN product_categories AS pc ON p.id = pc.product_id 
+                                            LEFT JOIN categories AS c ON pc.category_id = c.id
+                                            WHERE (c.name = 'Milk Chocolate' O)
+
+Time : 10:25:30
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 4
+Raw SQL : SELECT p.* FROM products AS p 
+                                            LEFT JOIN product_categories AS pc ON p.id = pc.product_id 
+                                            LEFT JOIN categories AS c ON pc.category_id = c.id
+                                            WHERE ()
+
+Time : 10:25:16
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'O)' at line 4
+Raw SQL : SELECT p.* FROM products AS p 
+                                            LEFT JOIN product_categories AS pc ON p.id = pc.product_id 
+                                            LEFT JOIN categories AS c ON pc.category_id = c.id
+                                            WHERE (c.name = 'Milk Chocolate' O)
+
+Time : 10:24:38
+SQLSTATE[21000]: Cardinality violation: 1241 Operand should contain 1 column(s)
+Raw SQL : SELECT p.* FROM products AS p 
+                                            LEFT JOIN product_categories AS pc ON p.id = pc.product_id 
+                                            LEFT JOIN categories AS c ON pc.category_id = c.id
+                                            WHERE (c.name = 'Milk Chocolate',c.name = '')
+
+Time : 10:24:11
+SQLSTATE[21000]: Cardinality violation: 1241 Operand should contain 1 column(s)
+Raw SQL : SELECT p.* FROM products AS p 
+                                            LEFT JOIN product_categories AS pc ON p.id = pc.product_id 
+                                            LEFT JOIN categories AS c ON pc.category_id = c.id
+                                            WHERE (c.name = 'Milk Chocolate',c.name = '')

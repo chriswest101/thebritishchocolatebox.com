@@ -1,0 +1,15 @@
+Time : 22:04:16
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'acwest10_bcb.addresses' doesn't exist
+Raw SQL : INSERT INTO `addresses` (address_1, address_2, town, county, postcode, country) VALUES(:address_1, :address_2, :town, :county, :postcode, :country)
+
+Time : 22:03:55
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'email_address' in 'field list'
+Raw SQL : INSERT INTO `users` (email_address, password, name) VALUES(:email, :password, :name)
+
+Time : 19:27:27
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Abbreviation' in 'field list'
+Raw SQL : INSERT INTO `states` (state,short_code) VALUES('Abbreviation', Abbreviation)
+
+Time : 19:26:27
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Abbreviation' in 'field list'
+Raw SQL : INSERT INTO `states` (state,short_code) VALUES('Abbreviation', Abbreviation)

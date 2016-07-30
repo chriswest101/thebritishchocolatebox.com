@@ -1,0 +1,13 @@
+Time : 10:57:36
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORc.name = 'Mars')' at line 4
+Raw SQL : SELECT p.* FROM products AS p 
+                                                LEFT JOIN product_categories AS pc ON p.id = pc.product_id 
+                                                LEFT JOIN categories AS c ON pc.category_id = c.id
+                                                WHERE (c.name = 'Cadbury' ORc.name = 'Mars')
+
+Time : 10:57:06
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORc.name = 'Mars')' at line 4
+Raw SQL : SELECT p.* FROM products AS p 
+                                                LEFT JOIN product_categories AS pc ON p.id = pc.product_id 
+                                                LEFT JOIN categories AS c ON pc.category_id = c.id
+                                                WHERE (c.name = 'undefinedCadbury' ORc.name = 'Mars')

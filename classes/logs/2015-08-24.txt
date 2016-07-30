@@ -1,0 +1,152 @@
+Time : 12:56:13
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'discontinued=0 ORDER BY featured DESC LIMIT 12' at line 6
+Raw SQL : SELECT DISTINCT(p.id), p.* FROM products AS p 
+                                                    LEFT JOIN product_categories AS pc ON p.id = pc.product_id 
+                                                    LEFT JOIN categories AS c ON pc.category_id = c.id
+                                                    WHERE (c.name = 'Cadbury' OR c.name = 'Mars' )
+                                                    OR (p.manufacturer = 'Cadbury' OR p.manufacturer = 'Mars' )
+                                                    discontinued=0 ORDER BY featured DESC LIMIT 12
+
+Time : 12:55:19
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+                                                    OR (p.manufacturer = 'Cadb' at line 4
+Raw SQL : SELECT DISTINCT(p.id), p.* FROM products AS p 
+                                                    LEFT JOIN product_categories AS pc ON p.id = pc.product_id 
+                                                    LEFT JOIN categories AS c ON pc.category_id = c.id
+                                                    WHERE ()
+                                                    OR (p.manufacturer = 'Cadbury' OR p.manufacturer = 'Mars' )
+                                                    discontinued=0 ORDER BY featured DESC LIMIT 12
+
+Time : 12:53:22
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+                                                    OR (p.manufacturer = 'Cadb' at line 4
+Raw SQL : SELECT DISTINCT(p.id), p.* FROM products AS p 
+                                                    LEFT JOIN product_categories AS pc ON p.id = pc.product_id 
+                                                    LEFT JOIN categories AS c ON pc.category_id = c.id
+                                                    WHERE ()
+                                                    OR (p.manufacturer = 'Cadbury' OR p.manufacturer = 'Mars' )
+                                                    discontinued=0 ORDER BY featured DESC LIMIT 12
+
+Time : 12:52:58
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+                                                    OR (p.manufacturer = '' OR' at line 4
+Raw SQL : SELECT DISTINCT(p.id), p.* FROM products AS p 
+                                                    LEFT JOIN product_categories AS pc ON p.id = pc.product_id 
+                                                    LEFT JOIN categories AS c ON pc.category_id = c.id
+                                                    WHERE ()
+                                                    OR (p.manufacturer = '' OR p.manufacturer = '' )
+                                                    discontinued=0 ORDER BY featured DESC LIMIT 12
+
+Time : 12:52:27
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+                                                    OR (p.manufacturer = '' OR' at line 4
+Raw SQL : SELECT DISTINCT(p.id), p.* FROM products AS p 
+                                                    LEFT JOIN product_categories AS pc ON p.id = pc.product_id 
+                                                    LEFT JOIN categories AS c ON pc.category_id = c.id
+                                                    WHERE ()
+                                                    OR (p.manufacturer = '' OR p.manufacturer = '' )
+                                                    discontinued=0 ORDER BY featured DESC LIMIT 12
+
+Time : 12:52:04
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+                                                    OR (p.manufacturer = '' OR' at line 4
+Raw SQL : SELECT DISTINCT(p.id), p.* FROM products AS p 
+                                                    LEFT JOIN product_categories AS pc ON p.id = pc.product_id 
+                                                    LEFT JOIN categories AS c ON pc.category_id = c.id
+                                                    WHERE ()
+                                                    OR (p.manufacturer = '' OR p.manufacturer = '' )
+                                                    discontinued=0 ORDER BY featured DESC LIMIT 12
+
+Time : 12:51:48
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+                                                    OR (p.manufacturer = '' OR' at line 4
+Raw SQL : SELECT DISTINCT(p.id), p.* FROM products AS p 
+                                                    LEFT JOIN product_categories AS pc ON p.id = pc.product_id 
+                                                    LEFT JOIN categories AS c ON pc.category_id = c.id
+                                                    WHERE ()
+                                                    OR (p.manufacturer = '' OR p.manufacturer = '' )
+                                                    discontinued=0 ORDER BY featured DESC LIMIT 12
+
+Time : 12:51:20
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+                                                    OR (p.manufacturer = '' OR' at line 4
+Raw SQL : SELECT DISTINCT(p.id), p.* FROM products AS p 
+                                                    LEFT JOIN product_categories AS pc ON p.id = pc.product_id 
+                                                    LEFT JOIN categories AS c ON pc.category_id = c.id
+                                                    WHERE ()
+                                                    OR (p.manufacturer = '' OR p.manufacturer = '' )
+                                                    discontinued=0 ORDER BY featured DESC LIMIT 12
+
+Time : 12:51:17
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+                                                    OR (p.manufacturer = '' OR' at line 4
+Raw SQL : SELECT DISTINCT(p.id), p.* FROM products AS p 
+                                                    LEFT JOIN product_categories AS pc ON p.id = pc.product_id 
+                                                    LEFT JOIN categories AS c ON pc.category_id = c.id
+                                                    WHERE ()
+                                                    OR (p.manufacturer = '' OR p.manufacturer = '' )
+                                                    discontinued=0 ORDER BY featured DESC LIMIT 12
+
+Time : 12:50:57
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+                                                    OR (p.manufacturer = '' OR' at line 4
+Raw SQL : SELECT DISTINCT(p.id), p.* FROM products AS p 
+                                                    LEFT JOIN product_categories AS pc ON p.id = pc.product_id 
+                                                    LEFT JOIN categories AS c ON pc.category_id = c.id
+                                                    WHERE ()
+                                                    OR (p.manufacturer = '' OR p.manufacturer = '' )
+                                                    discontinued=0 ORDER BY featured DESC LIMIT 12
+
+Time : 12:50:34
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+                                                    OR (p.manufacturer = '' OR' at line 4
+Raw SQL : SELECT DISTINCT(p.id), p.* FROM products AS p 
+                                                    LEFT JOIN product_categories AS pc ON p.id = pc.product_id 
+                                                    LEFT JOIN categories AS c ON pc.category_id = c.id
+                                                    WHERE ()
+                                                    OR (p.manufacturer = '' OR p.manufacturer = '' )
+                                                    discontinued=0 ORDER BY featured DESC LIMIT 12
+
+Time : 12:50:32
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+                                                    OR (p.manufacturer = '' OR' at line 4
+Raw SQL : SELECT DISTINCT(p.id), p.* FROM products AS p 
+                                                    LEFT JOIN product_categories AS pc ON p.id = pc.product_id 
+                                                    LEFT JOIN categories AS c ON pc.category_id = c.id
+                                                    WHERE ()
+                                                    OR (p.manufacturer = '' OR p.manufacturer = '' )
+                                                    discontinued=0 ORDER BY featured DESC LIMIT 12
+
+Time : 12:50:18
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+                                                    OR (p.manufacturer = '' OR' at line 4
+Raw SQL : SELECT DISTINCT(p.id), p.* FROM products AS p 
+                                                    LEFT JOIN product_categories AS pc ON p.id = pc.product_id 
+                                                    LEFT JOIN categories AS c ON pc.category_id = c.id
+                                                    WHERE ()
+                                                    OR (p.manufacturer = '' OR p.manufacturer = '' )
+                                                    discontinued=0 ORDER BY featured DESC LIMIT 12
+
+Time : 12:23:26
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '0121212121212121212121212, 12' at line 1
+Raw SQL : SELECT * FROM `products` WHERE discontinued=0 ORDER BY featured DESC LIMIT 0121212121212121212121212, 12
+
+Time : 12:23:18
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '01212121212121212121212, 12' at line 1
+Raw SQL : SELECT * FROM `products` WHERE discontinued=0 ORDER BY featured DESC LIMIT 01212121212121212121212, 12
+
+Time : 10:12:34
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY featured' at line 1
+Raw SQL : SELECT * FROM `products` WHERE discontinued=0 LIMIT 12 ORDER BY featured
+
+Time : 10:12:12
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'featured' at line 1
+Raw SQL : SELECT * FROM `products` WHERE discontinued=0 LIMIT 12 featured
+
+Time : 10:10:38
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'f e' at line 1
+Raw SQL : SELECT * FROM `products` WHERE discontinued=0 LIMIT 12 f e
+
+Time : 10:09:48
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'featured' at line 1
+Raw SQL : SELECT * FROM `products` WHERE discontinued=0 LIMIT 12 featured

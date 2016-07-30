@@ -1,0 +1,11 @@
+Time : 11:01:49
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 0, 5' at line 1
+Raw SQL : SELECT * FROM products WHERE discontinued=0 ORDER BY  LIMIT 0, 5
+
+Time : 10:59:14
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT ,' at line 1
+Raw SQL : SELECT * FROM products WHERE discontinued=0 ORDER BY  LIMIT ,
+
+Time : 10:58:59
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT ,' at line 1
+Raw SQL : SELECT * FROM products WHERE discontinued=0 ORDER BY  LIMIT ,

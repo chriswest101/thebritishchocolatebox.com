@@ -1,0 +1,19 @@
+Options -Indexes +FollowSymlinks
+RewriteEngine On
+
+#urls to exclude
+RewriteCond %{REQUEST_URI} !/index.php$
+RewriteCond %{REQUEST_URI} !/products.php$
+RewriteCond %{REQUEST_URI} !/delivery.php$
+RewriteCond %{REQUEST_URI} !/cart.php$
+RewriteCond %{REQUEST_URI} !/checkout.php$
+#RewriteCond %{REQUEST_URI} !^/img
+#RewriteCond %{REQUEST_URI} !^/css$
+#RewriteCond %{REQUEST_URI} !^/$
+
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule !.*\.php$ %{REQUEST_FILENAME}.php [QSA,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([a-zA-Z0-9_\(\)\-]+)$ product?id=$1&{QUERY_STRING} [QSA]
+

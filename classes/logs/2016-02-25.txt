@@ -1,0 +1,29 @@
+Time : 13:43:54
+SQLSTATE[HY000] [2002] No such file or directory
+
+Time : 13:43:49
+SQLSTATE[HY000] [2002] No such file or directory
+
+Time : 13:43:48
+SQLSTATE[HY000] [2002] No such file or directory
+
+Time : 13:43:48
+SQLSTATE[HY000] [2002] No such file or directory
+
+Time : 13:43:42
+SQLSTATE[HY000] [2002] No such file or directory
+
+Time : 13:43:41
+SQLSTATE[HY000] [2002] No such file or directory
+
+Time : 13:43:06
+SQLSTATE[HY000] [2002] No such file or directory
+
+Time : 13:43:06
+SQLSTATE[HY000] [2002] No such file or directory
+
+Time : 13:43:05
+SQLSTATE[HY000] [2002] No such file or directory
+
+Time : 13:43:05
+SQLSTATE[HY000] [2002] No such file or directory

@@ -1,0 +1,3 @@
+Time : 12:54:49
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT * FROM `addresses` WHERE email_address = :email_address
