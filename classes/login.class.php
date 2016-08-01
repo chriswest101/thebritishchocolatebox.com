@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @author lolkittens
+ * @author British Chocolate Box
  * @copyright 2015
  */
     
