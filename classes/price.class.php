@@ -11,7 +11,7 @@
         
         /**
          * Public Functions
-         * /
+         **/
         /** Return the prices back to the caller **/
         public function returnPrices($courierid = false, $orderNums = false) {
             
