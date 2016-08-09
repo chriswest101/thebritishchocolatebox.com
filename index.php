@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @author British Chocolate Box
+ * @author Chris West
  * @copyright 2015
  */
     
@@ -18,12 +18,20 @@
             $this->showPage();
         }  
         
+        /**
+         * Get a array of our featured items
+         * @return array of our featured items
+         */
         public function getItems() {  global $smarty, $db;
 	        $products = $db->query("SELECT * FROM products WHERE featured=1");
             
             $smarty->assign("products", $products);
         }
         
+        /**
+         * Display our index page
+         * @return our index html
+         */
         public function showPage() { global $display, $smarty;
             $smarty->assign("page", "homepage");
             

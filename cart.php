@@ -2,7 +2,7 @@
 
 
 /**
- * @author British Chocolate Box
+ * @author Chris West
  * @copyright 2015
  */
     
@@ -46,14 +46,28 @@
             $this->showPage();
         }  
         
-        public function getSessionItems() { global $smarty;            
-            $smarty->assign("cart", $_SESSION['checkout']['items']);
+        /**
+         * Get our cart session items
+         * @return array of our cart items from session
+         */
+        public function getSessionItems() { global $smarty;        
+            if(isset($_SESSION['checkout']['items'])) {    
+                $smarty->assign("cart", $_SESSION['checkout']['items']);
+            }
         }
         
+        /**
+         * Clear the session checkout array to start the checkout agian
+         * @return session cleared
+         */
         public function resetCheckout() {
             unset($_SESSION['checkout']);
         }
         
+        /**
+         * Show our page
+         * @return our page html
+         */
         public function showPage() { global $display, $smarty;
             $smarty->assign("page", "left-sidebar");
             $smarty->assign("stage", "cart");

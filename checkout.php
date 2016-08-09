@@ -2,7 +2,7 @@
 
 
 /**
- * @author British Chocolate Box
+ * @author Chris West
  * @copyright 2015
  */
     
@@ -61,7 +61,11 @@
             
             
         }  
-        /** STAGES **/
+
+        /**
+         * This is stage one of the checkout where the cart items are displayed
+         * @return our checkout html for displaying our items and totals etc
+         */
         public function stageOne() { global $smarty, $cart, $login;  
             unset($_SESSION['checkout']['paypal']);
             
@@ -80,6 +84,10 @@
             $this->getAddress();
             $this->showStageOne();
         }
+        /**
+         * This is stage 2 of the checkout where we forward our customer onto the correct payment method they chose
+         * @return 
+         */
         public function stageTwo() { global $smarty, $cart, $login;  
             if(isset($_REQUEST['paypal'])) {
                 require_once("includes/payment/paypal/paypal.php");
@@ -97,6 +105,10 @@
                 }
             }
         }
+        /**
+         * This is stage 3 of the checkout and is the confirm stage where the user can confirm there order
+         * @return Out html for stage 3
+         */
         public function stageThree() { global $smarty, $cart, $login, $db;  
             if(isset($_REQUEST['paypal'])) {
                 $_SESSION['checkout']['paypal'] = $_REQUEST;
@@ -104,23 +116,32 @@
             }
             $smarty->assign("checkoutStage", "confirm");
             
+            // Get the courier the customer selected
             $courier = $db->row("SELECT * FROM `couriers` WHERE id = '{$_SESSION['checkout']['delivery']['id']}'");
             $courier['cost'] = ceil(($_SESSION['checkout']['item_count'] / 10)) * $courier['cost'];
             $smarty->assign("courier", $courier);
             
+            // Get our cart items from session
             $this->getSessionItems();
+
+            // Display our page
             $this->showStageThree();
         }
-        
+        /**
+         * This is the final stage of the checkout where the order is created and an email confirmation sent
+         * @return stage complate html
+         */
         public function stageFour() { global $smarty, $cart, $login, $order;  
-        
+            // Check that they have actually gone through a payment method
             if(isset($_SESSION['checkout']['paymentMethod'])) {
                 if($_SESSION['checkout']['paymentMethod'] == "paypal") {
                     require_once("includes/payment/paypal/paypal.php");
                     $payment = new paypal;
                     
+                    // Generate new order ID
                     $orderID = $order->generateOrderID();
                     
+                    // Process the paypal request
                     $result = $payment->processPayPal();
                     
                     if($result) {
@@ -154,24 +175,35 @@
             }
         }
         
-        /** UTILITY **/
+        /**
+         * Get our cart items from session
+         * @return assign our cart items to be used in the templating engine
+         */
         public function getSessionItems() { global $smarty;            
             $smarty->assign("cart", $_SESSION['checkout']['items']);
         }
         
+        /**
+         * Get our page vars
+         * @return Assign our couriers and countries to be used on the page
+         */
         public function getPageVars() { global $db, $smarty;
-            if($_SESSION['location'] == "USA") {
-                $states = $db->query("SELECT state FROM `states` ORDER BY state");
-            } else {
-                $states = $db->query("SELECT county as state FROM `counties` ORDER BY county");
+            // Assign our states or counties
+            switch($_SESSION['location']) {
+                case "USA" :
+                    $states = $db->query("SELECT state FROM `states` ORDER BY state");
+                break;
+                default :
+                    $states = $db->query("SELECT county as state FROM `counties` ORDER BY county");
             }
             $smarty->assign("states", $states);
             
+            // Get array of countries
             $countries = $db->query("SELECT common_name as name, country_code FROM `countries` WHERE featured=1");
             $smarty->assign("countries", $countries);
             
+            // Get our couriers that can be used based on country location
             $couriers = $db->query("SELECT * FROM `couriers` WHERE country = '{$_SESSION['location']}' ORDER BY courier_name");
-            
             
             foreach($couriers as $key => $courier) {
                 if(!isset($_SESSION['checkout']['delivery']['id'])) {
@@ -183,14 +215,29 @@
             $smarty->assign("couriers", $couriers);
         }
         
+        /**
+         * Reset the session checkout array to start the checkout agian
+         * @return unset the session checkout array
+         */
         public function resetCheckout() {
             unset($_SESSION['checkout']);
         }
         
+        /**
+         * Get the users address
+         * @param string user email
+         * @return assign users address to session
+         */
         public function getAddress() { global $db, $smarty;
             $_SESSION['address'] = $db->row("SELECT * FROM `addresses` WHERE email_address = :email_address", array("email_address" => $_SESSION['user']['email_address']));
         }
         
+        /**
+         * Mail the order confirmation to the customer
+         * @param string html email content
+         * @param string order id
+         * @return mail the order confirmation
+         */
         public function mail($content, $order_id) {
             $headers = "MIME-Version: 1.0\n";
 			$headers .= "Content-type: text/html; charset=iso-8859-1\n";
@@ -198,6 +245,12 @@
             
             mail($_SESSION['user']['email_address'], "The British Chocolate Box - Order Confirmation #$order_id", $content, $headers);	
         }
+        /**
+         * Create the email content for order confirmation email
+         * @param string order id
+         * @param string customer name
+         * @return html email content
+         */
         public function createEmail($order_id, $customerName) {
 			$message = <<<MSG
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -242,6 +295,7 @@ Thank you for your order. Please find below a confirmation of your order items. 
   </tr>
 MSG;
 
+// Create html table of items
 foreach($_SESSION['checkout']['items'] as $key => $item) {
 
 $currency = $_SESSION['currency_symbol'];
@@ -372,6 +426,10 @@ MSG;
         
         
         /** DISPLAY **/
+        /**
+         * Display html for stage 1
+         * @return html
+         */
         public function showStageOne() { global $display, $smarty;
             $smarty->assign("page", "left-sidebar");
             $smarty->assign("stage", "checkout");
@@ -382,6 +440,10 @@ MSG;
             
             $display->footer();
         }
+        /**
+         * Display html for stage 3
+         * @return html
+         */
         public function showStageThree() { global $display, $smarty;
             $smarty->assign("page", "left-sidebar");
             $smarty->assign("stage", "checkout_confirm");
@@ -392,6 +454,10 @@ MSG;
             
             $display->footer();
         }
+        /**
+         * Display html for stage 4
+         * @return html
+         */
         public function showStageFour() { global $display, $smarty;
             $smarty->assign("page", "left-sidebar");
             $smarty->assign("stage", "checkout_complete");

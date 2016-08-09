@@ -1,12 +1,14 @@
 <?php
 
 /**
- * @author 
+ * @author Chris West
  * @copyright 2015
  */
 
     class paypal {
-            /** Process paypal payments **/
+            /**
+             * Send paypal payment request and redirect or catch if they have gone through paypal process
+             */
             public function processPayPal() { global $db;             
                 
                 $_SESSION['checkout']['paymentMethod'] = "paypal";
@@ -227,7 +229,11 @@
         		}
             }
             
-            /** Paypal Error **/
+            /**
+             * Email paypal payent error
+             * @param string $stage is stage of checkout user was on
+             * @return false
+             */
             public function payPalProAPIError($stage = "Unkown"){
     
     			$resArray = $_SESSION['reshash'];
@@ -260,7 +266,11 @@
 	  			return false;
     		}
             
-            /** Payment processor for PayPal **/
+            /**
+             * Send request for paypal payment
+             * @param string $orderID
+             * @return true or false depending on if transaction was successful
+             */
     		public function processPayPalPayment($orderID) { global $db;
     		  
     			require_once("includes/payment/paypal/CallerService.php");
@@ -280,7 +290,8 @@
                 $_SESSION['checkout']['paypalDetail'] = $resArray;
                 
     			$ack = strtoupper($resArray["ACK"]);
-                                
+                
+                // Insert a log into the paypal logs table
                 $insert = $db->query("INSERT INTO `paypal_pro_api` (order_id, email_address, token, transaction_id, payer_id, payment_type, value, currCodeType, txtime, ack, transaction_type, payment_type2, payment_status, pending_reason, reason_code, address_status) 
                         VALUES(:order_id, :email_address, :token, :transaction_id, :payer_id, :payment_type, :value, :currCodeType, :txtime, :ack, :transaction_type, :payment_type2, :payment_status, :pending_reason, :reason_code, :address_status)",
                         array(
@@ -314,6 +325,7 @@
     			    $_SESSION['checkout']['paymentHandler'] = array(
                         'success'       => true,
                     ); 
+                    // Insert order payment log
                     $insert = $db->query("INSERT INTO `order_payments` (order_id, pay_type, pay_ref, pay_ref2, amount, currency, taken_by, timestamp, status) 
                         VALUES(:order_id, :pay_type, :pay_ref, :pay_ref2, :amount, :currency, :taken_by, :timestamp, :status)",
                         array(

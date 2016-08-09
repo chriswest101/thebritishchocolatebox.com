@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @author British Chocolate Box
+ * @author Chris West
  * @copyright 2015
  */
     
@@ -40,6 +40,10 @@
     
     // SET GLOBAL VARIABLES
     setDefines();
+    /**
+     * Define our constant globals from the donfig table
+     * @return assign vars to contants
+     */
     function setDefines() { global $db, $smarty;
         $data = $db->query("SELECT * FROM `configs`");
         
@@ -53,12 +57,21 @@
     
     // GET CURRENY CONVERSION RATE
     getGeoLocation();
+    /**
+     * Get the geoloaction of a user based on there IP
+     * @return geo location of user
+     */
     function getGeoLocation() {
         $ip = $_SERVER['REMOTE_ADDR'];
         $json = file_get_contents("http://freegeoip.net/json/$ip"); // this WILL do an http request for you
         $data = json_decode($json);
         getExchangeRate($data->country_code);
     }
+    /**
+     * Get the exchange rate that we need to use based on there location using yahoo finance site
+     * @param string location of user
+     * @return float currency conversion rate
+     */
     function getExchangeRate($location) { global $db;
         $currency = $db->query("SELECT currency FROM `countries` WHERE country_code = '$location'");
         if($location != "GB") {
@@ -79,6 +92,11 @@
         
         return $currentRate;
     }
+    /**
+     * Get the currency symbol based on location
+     * @param string location
+     * @return array of currency info, symbol and name
+     */
     function getCurrency($location) { global $db;
         if($location != "GB") {
             $currency = $db->query("SELECT currency, currency_symbol FROM `countries` WHERE country_code = '$location'");
@@ -96,6 +114,11 @@
     }
     
     // PRICE FORMAT FOR TEMPLATES
+    /**
+     * This fucntion is used in the template files to format prices with currency
+     * @param array $params is the array of params used to create the formatted price, css class, value, currency
+     * @return html of formatted currency
+     */
 	function priceFormat($params, $smarty) {
 		$class = empty($params['class']) ? 'price' : $params['class'];
 		$currency = $params['currency'];

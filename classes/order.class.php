@@ -1,19 +1,28 @@
 <?php
 
 /**
- * @author British Chocolate Box
+ * @author Chris West
  * @copyright 2015
  */
     $order = new order;
     
     class order {
         
+        /**
+         * Generate a new order id
+         * @return string newly created order id
+         */
         public function generateOrderID() { global $db;
             // Generate Order ID
             $db->query("INSERT INTO `order_ids` (foo) VALUES(:foo)", array('foo' => true));
             return $db->lastInsertId();
         }
         
+        /**
+         * Insert a new order into the database
+         * @param string order id
+         * @return our new order id
+         */
         public function createOrder($orderID) { global $db;
             
             // Insert Order

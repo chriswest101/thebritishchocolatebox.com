@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @author British Chocolate Box
+ * @author Chris West
  * @copyright 2015
  */
     
@@ -16,6 +16,10 @@
             $this->showPage();
         }  
         
+        /**
+         * Show our delivery page content
+         * @return html for page
+         */
         public function showPage() { global $display, $smarty;
             $smarty->assign("page", "homepage");
             
